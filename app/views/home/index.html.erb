@@ -1,0 +1,9 @@
+<h1>ilovesuhi</h1>
+
+<div class="row">
+  <%= form_tag("/search", method: "post") do %>
+    <%= label_tag(:word, "Search for:") %>
+    <%= text_field_tag(:word) %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
