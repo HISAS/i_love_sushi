@@ -3,6 +3,8 @@ class HomeController < ApplicationController
   end
 
   def search
-    @results = Yelp.client.search('Tokyo', { term: 'sushi' })
+    location = params[:word]
+    locale = { lang: 'ja' }
+    @results = Yelp.client.search(location, { term: 'sushi' }, locale)
   end
 end
