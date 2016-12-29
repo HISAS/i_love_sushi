@@ -1,7 +1,7 @@
 <div class="row">
-  <%= form_tag("/search", method: "post") do %>
-    <%= label_tag(:word, "Search for:") %>
-    <%= text_field_tag(:word) %>
-    <%= submit_tag("Search") %>
+  <%= form_tag("/search", method: "POST") do %>
+    <%= label_tag :word, "" %>
+    <%= text_field_tag :word, '', placeholder: "場所を入力してください" %>
+    <%= submit_tag  '検索', class: 'btn btn-primary' %>
   <% end %>
 </div>

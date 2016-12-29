@@ -100,3 +100,12 @@ footer {
   margin-top: 45px;
   @include box_sizing;
 }
+
+
+/* form */
+form {
+  text-align: center;
+}
+input#word {
+  width: 500px;
+}
