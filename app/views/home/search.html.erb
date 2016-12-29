@@ -2,7 +2,7 @@
   検索結果
 </div>
 <div class="result">
-    <p><%= @results.businesses[0].name %></p>
-    <p><%= @results.businesses[1].name %></p>
-    <p><%= @results.businesses[2].name %></p>
+  <% @results.each do |result| %>
+    <p><%= result.image_url %><%= result.name %><%= result.rating_img_url %><%= result.review_count %><%= result.location.display_address %></p>
+  <% end %>
 </div>

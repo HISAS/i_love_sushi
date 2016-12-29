@@ -3,8 +3,13 @@ class HomeController < ApplicationController
   end
 
   def search
+    if params[:word].blank?
+      redirect_to root_url
+    end
+
     location = params[:word]
     locale = { lang: 'ja' }
-    @results = Yelp.client.search(location, { term: 'sushi' }, locale)
+    response = Yelp.client.search(location, { term: 'sushi' }, locale)
+    @results = response.businesses
   end
 end
