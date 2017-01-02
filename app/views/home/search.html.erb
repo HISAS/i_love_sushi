@@ -1,8 +1,42 @@
-<div class="result">
-  検索結果
+<div class="top-shelf">
+  <%= params[:word] %>の検索結果
 </div>
-<div class="result">
-  <% @results.each do |result| %>
-    <p><%= result.image_url %><%= result.name %><%= result.rating_img_url %><%= result.review_count %><%= result.location.display_address %></p>
-  <% end %>
+<div class="content-container">
+  <div class="container">
+    <div class="results-wrapper">
+      <ul class="search-results">
+      <% @results.each do |result| %>
+        <li>
+          <div class="search-result">
+            <div class="main-attributes">
+              <div class="media-avatar">
+                <%= image_tag result.image_url.present? ? result.image_url : "https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/fe8c0c8725d3/assets/img/default_avatars/business_90_square.png", size: "80"  %>
+              </div>
+              <div class="media-story">
+                <p><%= link_to result.name, result.url, target: "blank" %></p>
+                <p>
+                  <%= image_tag result.rating_img_url %>
+                  <%= result.review_count %>件のレビュー
+                </p>
+              </div>
+            </div>
+            <div class="secondary-attributes">
+              <address>
+                <%= result.location.city %>
+                <% result.location.address.each do |adress| %>
+                  <%= adress %>
+                <% end %>
+              </address>
+              <span class="phone">
+                <%= result.phone %>
+              </span>
+            </div>
+          </div>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+    <div class="map-wrapper">
+    </div>
+  </div>
 </div>
