@@ -122,7 +122,8 @@ input#word {
 .search-results {
   list-style: none;
   padding: 0;
-  width: 60%;
+  width: 55%;
+  float: left;
   li {
     padding: 10px 0 20px 0;
     border-top: 1px solid #e8e8e8;
@@ -144,4 +145,13 @@ input#word {
       width: 40%;
     }
   }
+}
+
+
+/* map-wrapper */
+
+.map-wrapper {
+  width: 45%;
+  float: left;
+  padding-left: 30px;
 }
