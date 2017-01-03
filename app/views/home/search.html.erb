@@ -37,7 +37,17 @@
       </ul>
     </div>
     <div class="map-wrapper">
-      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@ll[0]}%2C#{@ll[1]}" %>
+      <div id="map">
+      </div>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+</script>
