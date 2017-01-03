@@ -27,8 +27,11 @@
                   <%= adress %>
                 <% end %>
               </address>
+              <span class="walk-time">
+                徒歩<%= calculate_walk_time(@ll, result.location.coordinate) %>分
+              </span>
               <span class="phone">
-                <%= result.phone %>
+                TEL:<%= result.phone %>
               </span>
             </div>
           </div>

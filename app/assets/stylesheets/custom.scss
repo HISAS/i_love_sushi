@@ -143,6 +143,9 @@ input#word {
     .secondary-attributes{
       float: left;
       width: 40%;
+      .walk-time{
+        padding-right: 10px;
+      }
     }
   }
 }

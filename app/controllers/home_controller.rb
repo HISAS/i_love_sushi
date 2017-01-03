@@ -14,6 +14,12 @@ class HomeController < ApplicationController
     response = Yelp.client.search_by_coordinates(coordinates, parameters, locale)
     @results = response.businesses
 
+    # @results.each do |result|
+    #   distance = Geocoder::Calculations.distance_between([@ll[0],@ll[1]], [result.location.coordinate.latitude, result.location.coordinate.longitude])
+    #   result.push({ walk_time: distance })
+    # end
+    # binding.pry
+
     @hash = Gmaps4rails.build_markers(@results) do |result, marker|
       marker.lat result.location.coordinate.latitude
       marker.lng result.location.coordinate.longitude
