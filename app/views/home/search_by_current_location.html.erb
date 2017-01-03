@@ -1,0 +1,56 @@
+<div class="top-shelf">
+  <%= @current_location %>の検索結果
+</div>
+<div class="content-container">
+  <div class="container">
+    <div class="results-wrapper">
+      <ul class="search-results">
+      <% @results.each do |result| %>
+        <li>
+          <div class="search-result">
+            <div class="main-attributes">
+              <div class="media-avatar">
+                <%= image_tag result.image_url.present? ? result.image_url : "https://s3-media3.fl.yelpcdn.com/assets/srv0/yelp_styleguide/fe8c0c8725d3/assets/img/default_avatars/business_90_square.png", size: "80"  %>
+              </div>
+              <div class="media-story">
+                <p><%= link_to result.name, result.url, target: "blank" %></p>
+                <p>
+                  <%= image_tag result.rating_img_url %>
+                  <%= result.review_count %>件のレビュー
+                </p>
+              </div>
+            </div>
+            <div class="secondary-attributes">
+              <address>
+                <%= result.location.city %>
+                <% result.location.address.each do |adress| %>
+                  <%= adress %>
+                <% end %>
+              </address>
+              <span class="walk-time">
+                徒歩<%= calculate_walk_time(@ll, result.location.coordinate) %>分
+              </span>
+              <span class="phone">
+                TEL:<%= result.phone %>
+              </span>
+            </div>
+          </div>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+    <div class="map-wrapper">
+      <div id="map">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+</script>
