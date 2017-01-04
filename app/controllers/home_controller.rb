@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  include Common
+
   def index
   end
 
@@ -8,18 +10,8 @@ class HomeController < ApplicationController
     end
 
     @ll = Geocoder.coordinates(params[:word])
-    coordinates = { latitude: @ll[0], longitude: @ll[1] }
-    parameters = { limit: 10, category_filter: 'sushi', sort: 1 }
-    locale = { lang: 'ja' }
-    response = Yelp.client.search_by_coordinates(coordinates, parameters, locale)
-    @results = response.businesses
-
-    @hash = Gmaps4rails.build_markers(@results) do |result, marker|
-      marker.lat result.location.coordinate.latitude
-      marker.lng result.location.coordinate.longitude
-      marker.infowindow result.name
-    end
-    @hash.push({ lat: @ll[0], lng: @ll[1], infowindow: params[:word] })
+    search_sushi_by_yelp
+    create_google_map(params[:word])
   end
 
   def search_by_current_location
@@ -29,18 +21,7 @@ class HomeController < ApplicationController
     Geocoder.configure(:language  => :ja)
     @current_location = Geocoder.address(ll)
 
-    coordinates = { latitude: @ll[0], longitude: @ll[1] }
-    parameters = { limit: 10, category_filter: 'sushi', sort: 1 }
-    locale = { lang: 'ja' }
-    response = Yelp.client.search_by_coordinates(coordinates, parameters, locale)
-    @results = response.businesses
-
-    @hash = Gmaps4rails.build_markers(@results) do |result, marker|
-      marker.lat result.location.coordinate.latitude
-      marker.lng result.location.coordinate.longitude
-      marker.infowindow result.name
-    end
-    @hash.push({ lat: @ll[0], lng: @ll[1], infowindow: @current_location })
-
+    search_sushi_by_yelp
+    create_google_map(@current_location)
   end
 end
