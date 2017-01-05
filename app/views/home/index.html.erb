@@ -1,15 +1,22 @@
-<div class="search-by-address">
-  <%= form_tag("/search_by_address", method: "POST") do %>
-    <%= label_tag :word, "" %>
-    <%= text_field_tag :word, '', placeholder: "場所を入力してください" %>
-    <%= submit_tag  '検索', class: 'btn btn-primary' %>
-  <% end %>
-</div>
-<div class="search-by-current-location">
-  <%= form_tag("/search_by_current_location", html: {method: "POST"}) do %>
-    <%= hidden_field_tag :latitude %>
-    <%= hidden_field_tag :longitude %>
-    <%= submit_tag  '現在位置から検索', class: 'btn btn-primary', id: "myButton" %>
-  <% end %>
+<div class="home-container">
+  <div class="container">
+    <h2>最寄りのお寿司屋さんを簡単に検索</h2>
+    <div class="search-sushi">
+      <div class="search-by-address">
+        <%= form_tag("/search_by_address", method: "POST") do %>
+          <%= label_tag :word, "" %>
+          <%= text_field_tag :word, '', placeholder: "場所を入力してください" %>
+          <%= submit_tag  '検索', class: 'btn btn-primary' %>
+        <% end %>
+      </div>
+      <div class="search-by-current-location">
+        <%= form_tag("/search_by_current_location", html: {method: "POST"}) do %>
+          <%= hidden_field_tag :latitude %>
+          <%= hidden_field_tag :longitude %>
+          <%= submit_tag  '現在位置から検索', class: 'btn btn-primary', id: "myButton" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 <%= javascript_include_tag "get_current_location.js" %>
