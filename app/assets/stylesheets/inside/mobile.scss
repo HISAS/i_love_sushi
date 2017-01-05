@@ -31,6 +31,11 @@ textarea {
   }
 }
 
+.container {
+  width: 900px;
+}
+
+
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -45,7 +50,7 @@ h1 {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 40px;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
@@ -58,12 +63,15 @@ p {
   line-height: 1.7em;
 }
 
+small {
+  font-size: 32px;
+}
+
 
 /* header */
 
 #logo {
-  float: left;
-  font-size: 1.7em;
+  font-size: 64px;
   color: #FA8072;
   letter-spacing: -1px;
   font-weight: bold;
@@ -102,9 +110,10 @@ footer {
 /* form */
 form {
   text-align: center;
+  font-size: 40px;
 }
 input#word {
-  width: 500px;
+  width: 600px;
 }
 
 
@@ -113,7 +122,7 @@ input#word {
   margin: 50px 30px;
   h2 {
     text-align: left;
-    font-size: 18px;
+    font-size: 32px;
     color: #333333;
   }
 }
@@ -123,20 +132,18 @@ input#word {
 
 .search-results {
   list-style: none;
-  padding: 0;
-  width: 55%;
-  float: left;
+  font-size: 22px;
   li {
     padding: 10px 0 20px 0;
     border-top: 1px solid #e8e8e8;
-    height: 100px;
+    height: 140px;
     .search-result {
       float: left;
       width: 100%;
     }
     .main-attributes {
       float: left;
-      width: 60%;
+      width: 50%;
       .media-avatar{
         float: left;
         margin-right: 15px;
@@ -156,9 +163,7 @@ input#word {
 /* map-wrapper */
 
 .map-wrapper {
-  width: 45%;
-  float: left;
-  padding-left: 40px;
+  margin-top: 120px;
 }
 #map {
   position: relative;
@@ -172,22 +177,24 @@ input#word {
 /* home */
 .home-container {
   padding: 40px 0;
-  height: 750px;
+  height: 1200px;
   .search-sushi{
-    margin-top: 60px;
+    margin-top: 100px;
     text-align: center;
   }
-  .search-by-address {
-    display: inline-block;
-  }
   .search-by-current-location {
-    display: inline-block;
-    padding-left: 10px;
+    margin-top: 100px;
   }
 }
 
 
-/* home */
+/* error */
 #error {
+    font-size: 32px;
     height: 100px;
+}
+
+
+.content-container {
+  width: 800px;
 }

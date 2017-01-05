@@ -4,6 +4,11 @@
     <title>Ilovesushi</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% if request.smart_phone? || request.mobile? %>
+      <%= stylesheet_link_tag 'inside/mobile', media: "all" %>
+    <% else %>
+      <%= stylesheet_link_tag 'inside/custom', media: "all" %>
+    <% end %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag('favicon.ico') %>
     <script src="//maps.google.com/maps/api/js?key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>"></script>

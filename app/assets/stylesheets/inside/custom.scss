@@ -1,0 +1,195 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+/* universal */
+
+body {
+  padding-top: 30px;
+  background-color: #FFFAF0;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: gray;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* header */
+
+#logo {
+  float: left;
+  font-size: 2em;
+  color: #FA8072;
+  letter-spacing: -1px;
+  font-weight: bold;
+  &:hover {
+    color: #FFA07A;
+    text-decoration: none;
+  }
+}
+
+/* footer */
+
+footer {
+  margin-top: 100px;
+  padding-bottom: 50px;
+  color: black;
+  a {
+    color: gray;
+  }
+  small {
+    float: left;
+  }
+}
+
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+
+/* form */
+form {
+  text-align: center;
+}
+input#word {
+  width: 600px;
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+
+/* top-shelf */
+.top-shelf {
+  margin: 50px 30px;
+  h2 {
+    text-align: left;
+    font-size: 18px;
+    color: #333333;
+  }
+}
+
+
+/* results-wrapper */
+
+.search-results {
+  list-style: none;
+  padding: 0;
+  width: 55%;
+  float: left;
+  li {
+    padding: 10px 0 20px 0;
+    border-top: 1px solid #e8e8e8;
+    height: 100px;
+    .search-result {
+      float: left;
+      width: 100%;
+    }
+    .main-attributes {
+      float: left;
+      width: 60%;
+      .media-avatar{
+        float: left;
+        margin-right: 15px;
+      }
+    }
+    .secondary-attributes {
+      float: left;
+      width: 40%;
+      .walk-time{
+        padding-right: 10px;
+      }
+    }
+  }
+}
+
+
+/* map-wrapper */
+
+.map-wrapper {
+  width: 45%;
+  float: left;
+  padding-left: 40px;
+}
+#map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  float: left;
+  padding: 75% 0 0;
+}
+
+
+/* home */
+.home-container {
+  padding: 40px 0;
+  height: 750px;
+  .search-sushi{
+    margin-top: 60px;
+    text-align: center;
+  }
+  .search-by-address {
+    display: inline-block;
+  }
+  .search-by-current-location {
+    display: inline-block;
+    padding-left: 10px;
+  }
+}
+
+
+/* home */
+#error {
+    height: 100px;
+}

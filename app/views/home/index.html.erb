@@ -11,14 +11,14 @@
         <%= form_tag("/search_by_address", method: "POST") do %>
           <%= label_tag :word, "" %>
           <%= text_field_tag :word, '', placeholder: "場所を入力してください" %>
-          <%= submit_tag  '検索', class: 'btn btn-primary' %>
+          <%= submit_tag  '検索', class: 'btn btn-primary btn-lg' %>
         <% end %>
       </div>
       <div class="search-by-current-location">
         <%= form_tag("/search_by_current_location", html: {method: "POST"}, onsubmit: "return check();", id: "myForm") do %>
           <%= hidden_field_tag :latitude %>
           <%= hidden_field_tag :longitude %>
-          <%= submit_tag  '現在位置から検索', class: 'btn btn-primary', id: "myButton", data: { disable_with: "位置情報を取得中..." } %>
+          <%= submit_tag  '現在位置から検索', class: 'btn btn-primary btn-lg', id: "myButton", data: { disable_with: "位置情報を取得中..." } %>
         <% end %>
       </div>
     </div>
