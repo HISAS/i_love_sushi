@@ -5,11 +5,11 @@ class HomeController < ApplicationController
   end
 
   def search_by_address
-    if params[:word].blank?
-      redirect_to root_url
-    end
-
     @ll = Geocoder.coordinates(params[:word])
+    if @ll == nil
+      flash[:danger] = '場所を特定することができませんでした。'
+      return redirect_to root_url
+    end
     search_sushi_by_yelp
     create_google_map(params[:word])
   end
@@ -20,7 +20,10 @@ class HomeController < ApplicationController
     ll = @ll[0] + "," + @ll[1]
     Geocoder.configure(:language  => :ja)
     @current_location = Geocoder.address(ll)
-
+    if @current_location == nil
+      flash[:danger] = '場所を特定することができませんでした。'
+      return redirect_to root_url
+    end
     search_sushi_by_yelp
     create_google_map(@current_location)
   end
