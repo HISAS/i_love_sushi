@@ -1,4 +1,4 @@
-# If you use "I love sushi", you can easily find nearbuy sushi restaurants.
+# You can easily find nearbuy sushi restaurants.
 
 ## Getting Start
 
