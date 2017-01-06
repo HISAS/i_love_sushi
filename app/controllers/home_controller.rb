@@ -7,7 +7,7 @@ class HomeController < ApplicationController
   def search_by_address
     @ll = Geocoder.coordinates(params[:word])
     if @ll == nil
-      flash.now[:danger] = '場所を特定することができませんでした。'
+      flash[:danger] = '場所を特定することができませんでした。'
       return redirect_to root_url
     end
     search_sushi_by_yelp
@@ -21,7 +21,7 @@ class HomeController < ApplicationController
     Geocoder.configure(:language  => :ja)
     @current_location = Geocoder.address(ll)
     if @current_location == nil
-      flash.now[:danger] = '場所を特定することができませんでした。'
+      flash[:danger] = '場所を特定することができませんでした。'
       return redirect_to root_url
     end
     search_sushi_by_yelp
