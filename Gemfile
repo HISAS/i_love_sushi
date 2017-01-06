@@ -14,6 +14,7 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'jpmobile'
 gem 'jpmobile-terminfo'
+gem 'meta-tags'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
