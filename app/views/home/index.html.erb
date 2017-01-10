@@ -5,20 +5,20 @@
     <% end %>
   </div>
   <div class="container">
-    <h2>最寄りのお寿司屋さんを簡単に検索</h2>
+    <h2>最寄りの寿司屋を簡単に検索</h2>
     <div class="search-sushi">
       <div class="search-by-address">
         <%= form_tag("/search_by_address", method: "GET", enforce_utf8: false) do %>
           <%= label_tag :word, "" %>
           <%= text_field_tag :word, '', placeholder: "場所を入力してください" %>
-          <%= submit_tag  '検索', class: 'btn btn-primary btn-lg', name: nil %>
+          <%= submit_tag  '検索', class: 'button button-rounded button-flat-primary', name: nil %>
         <% end %>
       </div>
       <div class="search-by-current-location">
         <%= form_tag("/search_by_current_location", method: "GET", onsubmit: "return check();", id: "myForm", enforce_utf8: false) do %>
           <%= hidden_field_tag :latitude %>
           <%= hidden_field_tag :longitude %>
-          <%= submit_tag  '現在位置から検索', class: 'btn btn-primary btn-lg', id: "myButton", data: { disable_with: "位置情報を取得中..." } %>
+          <%= submit_tag  'ここから近い寿司屋', class: 'button button-rounded button-flat-primary', id: "myButton", data: { disable_with: "位置情報を取得中..." } %>
         <% end %>
       </div>
     </div>

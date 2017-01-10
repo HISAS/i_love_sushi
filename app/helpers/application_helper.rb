@@ -6,10 +6,10 @@ module ApplicationHelper
 
   def default_meta_tags
   {
-    site: "I love sushi - 最寄りのお寿司屋さんを簡単に検索",
+    site: "I love sushi - 最寄りの寿司屋を簡単に検索",
     reverse: true,
     charset: "utf-8",
-    description: "現在位置または指定した場所から最寄りのお寿司屋さんを簡単に検索できます",
+    description: "現在位置または指定した場所から最寄りの寿司屋を簡単に検索できます",
     viewport: "width=device-width, initial-scale=1.0",
     og: {
       title: :title,

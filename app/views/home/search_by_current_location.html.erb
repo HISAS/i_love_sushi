@@ -1,4 +1,8 @@
 <div class="top-shelf">
   <h2><%= title search_title(@current_location) %></h2>
 </div>
-<%= render 'content' %>
+<% if request.smart_phone? || request.mobile? %>
+  <%= render 'content_mobile' %>
+<% else %>
+  <%= render 'content' %>
+<% end %>
