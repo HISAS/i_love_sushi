@@ -3,8 +3,8 @@
   <head>
     <%= display_meta_tags(default_meta_tags) %>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'buttons' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'buttons' %>
     <%= stylesheet_link_tag "https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" %>
     <% if request.smart_phone? || request.mobile? %>
       <%= stylesheet_link_tag 'inside/mobile', media: "all" %>
