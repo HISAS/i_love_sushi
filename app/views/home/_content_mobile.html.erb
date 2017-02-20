@@ -27,8 +27,8 @@
                   徒歩<%= calculate_walk_time(@ll, result.location.coordinate) %>分
                 </span>
               </address>
-              <span class="phone">
-                TEL:<%= result.phone %>
+              <span class="google-link">
+                <%= link_to "ルートをGoodle mapsで表示する", "https://www.google.co.jp/maps?saddr=#{@ll[0]},#{@ll[1]}&daddr=#{result.location.coordinate.latitude},#{result.location.coordinate.longitude}", target: "blank" %>
               </span>
             </div>
           </div>

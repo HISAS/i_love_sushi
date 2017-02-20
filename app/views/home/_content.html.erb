@@ -18,17 +18,17 @@
               </div>
             </div>
             <div class="secondary-attributes">
-              <address>
+              <span class="address">
                 <%= result.location.city %>
                 <% result.location.address.each do |adress| %>
                   <%= adress %>
                 <% end %>
-              </address>
+              </span>
               <span class="walk-time">
                 徒歩<%= calculate_walk_time(@ll, result.location.coordinate) %>分
               </span>
-              <span class="phone">
-                TEL:<%= result.phone %>
+              <span class="google-link">
+                <%= link_to "ルートをGoodle mapsで表示する", "https://www.google.co.jp/maps?saddr=#{@ll[0]},#{@ll[1]}&daddr=#{result.location.coordinate.latitude},#{result.location.coordinate.longitude}", target: "blank" %>
               </span>
             </div>
           </div>

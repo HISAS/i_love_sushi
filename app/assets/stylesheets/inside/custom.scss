@@ -130,7 +130,7 @@ input#word {
   li {
     padding: 10px 0 20px 0;
     border-top: 1px solid #e8e8e8;
-    height: 100px;
+    height: 110px;
     .search-result {
       float: left;
       width: 100%;
@@ -146,8 +146,16 @@ input#word {
     .secondary-attributes {
       float: left;
       width: 40%;
+      .address{
+        display: block;
+        margin-bottom: 10px;
+      }
       .walk-time{
         padding-right: 10px;
+      }
+      .google-link{
+        display: block;
+        margin-top: 5px;
       }
     }
   }
@@ -193,5 +201,5 @@ input#word {
 
 /* home */
 #error {
-    height: 100px;
+  height: 100px;
 }
